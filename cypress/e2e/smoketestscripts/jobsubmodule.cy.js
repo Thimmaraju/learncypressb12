@@ -1,3 +1,8 @@
+import login from "../../PageObjects/Login/loginpage.po";
+import job from "../../PageObjects/Admin/jobsubmodule.po";
+
+import addemployee from '../../PageObjects/PIM/addemployee.po'
+
 describe('Verify adding employee', () => {
 
 
@@ -7,11 +12,11 @@ describe('Verify adding employee', () => {
         cy.viewport('iphone-5',"landscape")
         cy.visit('/')
 
-        cy.get('input[name="username"]').type(Cypress.env("username"))
+        cy.get(login.usernameinput()).type(Cypress.env("username"))
 
-        cy.get('input[name="password"]').type(Cypress.env("password"))
+        cy.get(login.passwordInput()).type(Cypress.env("password"))
 
-        cy.get('button[type="submit"]').click()
+        cy.get(login.loginBtn()).click()
 
     });
 
@@ -27,27 +32,27 @@ describe('Verify adding employee', () => {
     it('add employee with valid details', () => {
 
 
-        cy.get('a[href="/web/index.php/pim/viewPimModule"]').click()
+        cy.get(addemployee.pimMenu()).click()
 
-        cy.contains('Add Employee').click()
+        cy.contains(addemployee.addemployeesubmenu()).click()
 
-        cy.get('input[name="firstName"]').type("Ashwani")
+        cy.get(addemployee.firstnameInput()).type("Ashwani")
 
-        cy.get('input[name="lastName"]').type("karnatakam")
+        cy.get(addemployee.lastname()).type("karnatakam")
 
-        cy.get('button[type="submit"]').click()
+        cy.get(addemployee.saveBtn()).click()
 
     })
 
     it('add Job titles', () => {
 
-        cy.get('a[href="/web/index.php/admin/viewAdminModule"]').click()
+        cy.get(job.adminmenu()).click()
 
-        cy.contains('Job').click()
+        cy.contains(job.jobsubmenu()).click()
 
-        cy.contains('Job Titles').click()
+        cy.contains(job.jobtitleoption()).click()
 
-        cy.get('button[class="oxd-button oxd-button--medium oxd-button--secondary"]').click()
+        cy.get(job.addBtn()).click()
 
         cy.get('input[class="oxd-input oxd-input--active"]').eq(1).type("Senior Analyst")
 

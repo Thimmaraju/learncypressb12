@@ -1,22 +1,28 @@
 
 import addemployeedata from "../../fixtures/addemployee.json"
 
+import logindata from '../../fixtures/login.json'
+
+import addemployee from "../../PageObjects/PIM/addemployee.po"
+
+import login from "../../PageObjects/Login/loginpage.po"
+
 describe('Verify Adding employee', () => {
 
     it('Verify add employee with valid details', () => {
 
         cy.visit("/web/index.php/auth/login")
 
-        cy.login(Cypress.env("username"), Cypress.env("password"))
-        cy.get('a[href="/web/index.php/pim/viewPimModule"]').click()
+        login.loginwithcreds(logindata.username, logindata.password)
+        cy.get(addemployee.pimMenu()).click()
 
-        cy.contains('Add Employee').click()
+        cy.contains(addemployee.addemployeesubmenu()).click()
 
-        cy.get('input[name="firstName"]').type(addemployeedata.firstname)
+        cy.get(addemployee.firstnameInput()).type(addemployeedata.firstname)
 
-        cy.get('input[name="lastName"]').type(addemployeedata.lastname)
+        cy.get(addemployee.lastname()).type(addemployeedata.lastname)
 
-        cy.get('button[type="submit"]').click();
+        cy.get(addemployee.saveBtn()).click();
         
     })
 

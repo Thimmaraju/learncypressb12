@@ -7,7 +7,7 @@ module.exports = defineConfig({
  
     //"retries":{ "runMode": 2, "openMode": 0 },
     "video":true,
-    //"excludeSpecPattern": "relvativepathofthefile, ",
+    //"excludeSpecPattern": "relvativepathofthefile",
     "screenshotOnRunFailure":true,
     "videoCompression": 51,
     //"videosFolder":"cypress/raju",

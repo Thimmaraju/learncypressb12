@@ -1,8 +1,8 @@
+///<reference types="cypress"/>
+
 describe('template spec', () => {
 
   it('passes', () => {
-
-
     var fisrtiutemvalue = "120"
 
     var seconditemvalue = "60"

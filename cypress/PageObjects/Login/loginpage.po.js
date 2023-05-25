@@ -29,11 +29,11 @@ class LoginPage{
         cy.get(this.passwordInput()).type(password)
 
         cy.get(this.loginBtn()).click()
+
      }
 }
 
 
 const login = new LoginPage()
-
 
 export default login

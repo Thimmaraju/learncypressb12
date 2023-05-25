@@ -1,0 +1,4 @@
+username=Raju
+email=Rajutester2673@gmail.com
+weakpassword=fbhbe
+Strongpassword=gfbnlfnweijhfwhelofhwov

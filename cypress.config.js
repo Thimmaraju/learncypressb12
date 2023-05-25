@@ -3,8 +3,8 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   e2e: {
     "baseUrl":"https://opensource-demo.orangehrmlive.com",
-    //"defaultCommandTimeout":20000,
-    "pageLoadTimeout": 120000,
+       "pageLoadTimeout": 120000,//"defaultCommandTimeout":20000,
+ 
     //"retries":{ "runMode": 2, "openMode": 0 },
     "video":true,
     //"excludeSpecPattern": "relvativepathofthefile, ",

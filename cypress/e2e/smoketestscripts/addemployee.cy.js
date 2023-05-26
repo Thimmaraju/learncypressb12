@@ -13,18 +13,18 @@ describe('Verify Adding employee', () => {
 
         cy.visit("/web/index.php/auth/login")
 
-        login.loginwithcreds(logindata.username, logindata.password)
-        cy.get(addemployee.pimMenu()).click()
+        cy.login("Admin", "admin123")
+        //cy.get(addemployee.pimMenu()).click()
+
+        cy.clickonelement(addemployee.pimMenu())
 
         cy.contains(addemployee.addemployeesubmenu()).click()
 
-        cy.get(addemployee.firstnameInput()).type(addemployeedata.firstname)
-
-        cy.get(addemployee.lastname()).type(addemployeedata.lastname)
-
-        cy.get(addemployee.saveBtn()).click();
+        cy.Addemployee("Sandeep", "E")
         
     })
+
+
 
 
 })

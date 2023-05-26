@@ -14,7 +14,7 @@ class LoginPage{
 
      loginBtn(){
 
-        return 'button[type="submit"]'
+        return '//button[@type="submit"]'
      }
 
      errormessage(){
@@ -24,11 +24,13 @@ class LoginPage{
 
      loginwithcreds(username, password){
 
-        cy.get(this.usernameinput).type(username)
+        //cy.get(this.usernameinput).type(username)
+         cy.enterText(this.usernameinput,username)
+        //cy.get(this.passwordInput()).type(password)
+        cy.enterText(this.passwordInput(),password)
+        //cy.get(this.loginBtn()).click()
 
-        cy.get(this.passwordInput()).type(password)
-
-        cy.get(this.loginBtn()).click()
+        cy.clickonelement(this.loginBtn())
 
      }
 }

@@ -1,6 +1,6 @@
 ///<reference types="cypress"/>
 
-import data from "../fixtures/register.json"
+import data from "../fixtures/Module1/register.json"
 
 describe('Fixture example 1', () => {
 
@@ -8,11 +8,16 @@ describe('Fixture example 1', () => {
 
         cy.visit("https://shop.demoqa.com/my-account/")
 
-        cy.get('#reg_username').type(data.username)
+        //cy.get('#reg_username').type(data.username)
 
-        cy.get('#reg_email').type(data.emailaddress);
-        cy.get('#reg_password').type(data.weakpassword)
+        cy.enterText('#reg_username',data.username)
 
+        //cy.get('#reg_email').type(data.emailaddress);
+
+        cy.enterText('#reg_email',data.emailaddress)
+        //cy.get('#reg_password').type(data.weakpassword)
+
+        cy.enterText('//*[@id="reg_password"]',data.weakpassword)
         //Checking whether the Register button is disabled or not either by grabbing the property or by checking its UI behavior
 
         // cy.get('locator').should('have.attr', 'attributename', 'Attributevalue');

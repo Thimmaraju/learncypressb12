@@ -4,7 +4,7 @@ import logindata from '../../fixtures/login.json'
 
 describe('Verify login functionality', () => {
 
-    it('Verify login with Valid credntials', function () {
+    it.only('Verify login with Valid credntials', function () {
 
         cy.visit("/web/index.php/auth/login")
         login.loginwithcreds(logindata.username, logindata.password)
@@ -44,8 +44,7 @@ describe('Verify login functionality', () => {
         cy.visit("/web/index.php/auth/login")
 
         //actions 
-        login.loginwithcreds(logindata.wrongusername, logindata.wrongpassword)
-
+        cy.login("Admin", "admin123")
         //assertion 
 
         cy.contains(login.errormessage()).should("be.visible")

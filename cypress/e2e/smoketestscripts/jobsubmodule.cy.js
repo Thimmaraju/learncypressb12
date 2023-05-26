@@ -12,11 +12,7 @@ describe('Verify adding employee', () => {
         cy.viewport('iphone-5',"landscape")
         cy.visit('/')
 
-        cy.get(login.usernameinput()).type(Cypress.env("username"))
-
-        cy.get(login.passwordInput()).type(Cypress.env("password"))
-
-        cy.get(login.loginBtn()).click()
+        cy.login("Admin", "admin123")
 
     });
 

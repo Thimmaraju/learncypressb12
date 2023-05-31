@@ -23,7 +23,7 @@ describe('Automation - Working With Drag and Drop', function () {
 
       //cy.get('#menu-hamburger').drag('#plate-items');
 
-     //Second Approach
+    //  //Second Approach
        const dataTransfer = new DataTransfer();
 
        

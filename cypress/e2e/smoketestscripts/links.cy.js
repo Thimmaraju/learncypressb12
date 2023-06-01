@@ -38,7 +38,7 @@ describe('Automation - Working With Links', function () {
         let y = txt.text()
         cy.log(y)
         expect(y).to.equal("Main page")
-
+        cy.writeFile('cypress/fixtures/module2/test7.json', { linktext: y});
       })
 
     })

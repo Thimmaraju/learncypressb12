@@ -1,91 +1,96 @@
-import login from '../pageobjects/Login/loginpage.po'
-import jobtitledata from "../fixtures/PIM/addjobtitle.json"
+import login from '../../PageObjects/Login/loginpage.po'
+
 
 describe('Validate Orange HRM Login functionality', function () {
 
 
   beforeEach(function () {
 
-    cy.session("Restore session", () => {
+    cy.session("Login session", () => {
       cy.visit("/web/index.php/auth/login")
-      cy.xpath(login.usernameInput()).type("Admin")
-      cy.xpath(login.passwordInput()).type("admin123")
-      cy.get(login.loginButton()).click()
+      cy.get(login.usernameinput).type("Admin")
+      cy.get(login.passwordInput()).type("admin123")
+      cy.xpath(login.loginBtn()).click()
     })
 
   })
 
-  it.only('Validate login with Valid credentials ', function () {
+  it.only('Validate Add job title ', function () {
 
 
-    cy.visit("/web/index.php/pim/viewEmployeeList");
+    cy.visit("/web/index.php/admin/saveJobTitle");
+    let r = (Math.random() + 1).toString(36).substring(7);
+    cy.get('input[class="oxd-input oxd-input--active"]').eq(1).type("Senior Analyst"+r)
 
+    cy.get('button[type="submit"]').click()
 
-    // cy.url().should('include',"/web/index.php/dashboard/index" )
-    // //or
-    // //cy.location().its('href').should('include',"/web/index.php/pim/viewEmployeeList" )
 
   })
 
-  it.only('Validate timesheet page ', function () {
+  it.only('Validate add pay grade', function () {
 
 
-    cy.visit("/web/index.php/time/viewEmployeeTimesheet")
+    cy.visit("/web/index.php/admin/payGrade")
+    let r = (Math.random() + 1).toString(36).substring(7);
 
+    cy.get('input[class="oxd-input oxd-input--active"]').eq(1).type("Grade 6"+r)
+
+    cy.get('button[type="submit"]').click()
     cy.wait(3000)
 
-    //cy.contains("Time").click()
-
 
   })
 
-  it('Validate Myinfo page ', function () {
+   it.only('Validate employment status ', function () {
 
 
-    cy.visit("/web/index.php/pim/viewMyDetails")
+    cy.visit("/web/index.php/admin/saveEmploymentStatus")
     cy.wait(3000)
+    cy.get('input[class="oxd-input oxd-input--active"]').eq(1).type("Full time")
 
-  })
+    cy.get('button[type="submit"]').click()
 
-  it('Validate Employee report ', function () {
+   })
 
-
-    cy.visit("/web/index.php/time/displayEmployeeReportCriteria")
-    cy.wait(3000)
-
-    cy.xpath('(//input[@placeholder="Type for hints..."])[2]').type("Raju")
-
-  })
+  // it('Validate Employee report ', function () {
 
 
-  it.only('Attendance Total Summary Report', function () {
+  //   cy.visit("/web/index.php/time/displayEmployeeReportCriteria")
+  //   cy.wait(3000)
+
+  //   cy.xpath('(//input[@placeholder="Type for hints..."])[2]').type("Raju")
+
+  // })
 
 
-    cy.visit("web/index.php/time/displayAttendanceSummaryReportCriteria")
-    cy.wait(3000)
-    //cy.xpath('(//input[@placeholder="Type for hints..."])[2]').type("Raju")
-
-  })
-
-  it('Add vacancy', function () {
+  // it('Attendance Total Summary Report', function () {
 
 
-    cy.visit("web/index.php/recruitment/addJobVacancy")
-    cy.wait(3000)
-    //cy.xpath('(//input[@placeholder="Type for hints..."])[2]').type("Raju")
+  //   cy.visit("web/index.php/time/displayAttendanceSummaryReportCriteria")
+  //   cy.wait(3000)
+  //   //cy.xpath('(//input[@placeholder="Type for hints..."])[2]').type("Raju")
 
-  })
+  // })
 
-  it.only('Add Job title ', function () {
-
-
-    cy.visit("/web/index.php/admin/saveJobTitle")
-    cy.wait(3000)
-
-    cy.AddJobTitle(jobtitledata.jobtitle, jobtitledata.jobdescription)
+  // it('Add vacancy', function () {
 
 
-  })
+  //   cy.visit("web/index.php/recruitment/addJobVacancy")
+  //   cy.wait(3000)
+  //   //cy.xpath('(//input[@placeholder="Type for hints..."])[2]').type("Raju")
+
+  // })
+
+  // it('Add Job title ', function () {
+
+
+  //   cy.visit("/web/index.php/admin/saveJobTitle")
+  //   cy.wait(3000)
+
+  //   cy.AddJobTitle(jobtitledata.jobtitle, jobtitledata.jobdescription)
+
+
+  // })
 
 })
 

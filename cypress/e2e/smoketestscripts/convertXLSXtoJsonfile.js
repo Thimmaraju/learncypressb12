@@ -18,7 +18,7 @@ var user_data = XLSX.utils.sheet_to_json(worksheet)
 
 console.log(user_data);
 
-fs.writeFile('cypress/fixtures/module1/user_data.json', JSON.stringify(user_data), (err) =>{
+fs.writeFile('cypress/fixtures/ExceltoJson/user_data.json', JSON.stringify(user_data), (err) =>{
 
     if(err){
 

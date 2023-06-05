@@ -4,8 +4,8 @@ const {downloadFile} = require('cypress-downloadfile/lib/addPlugin')
 module.exports = defineConfig({
   e2e: {
     "baseUrl":"https://opensource-demo.orangehrmlive.com",
-       "pageLoadTimeout": 120000,//"defaultCommandTimeout":20000,
- 
+    "pageLoadTimeout": 120000,//"defaultCommandTimeout":20000,
+    "requestTimeout": 10000,
     //"retries":{ "runMode": 2, "openMode": 0 },
     "video":true,
     //"excludeSpecPattern": "relvativepathofthefile",

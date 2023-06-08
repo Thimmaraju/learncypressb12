@@ -8,12 +8,12 @@ Scenario: Verify login with vaild creds
   And User click on login button
   Then  User should navigated to Dashboard
 
-# Scenario: Verify login with invaild creds
+Scenario: Verify login with invaild creds
 
-#  Given User launch Application
-#   When  User enter valid username "hkhkjdw" and Valid password "admin123"
-#   And User click on login button
-#   Then User should error message
+ Given User launch Application
+  When  User enter valid username "hkhkjdw" and Valid password "admin123"
+  And User click on login button
+  Then User should error message
 
 # Scenario: Verify login with invaild username and invalid password 
 

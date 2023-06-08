@@ -1,6 +1,6 @@
 ///<reference types="cypress"/>
 
-import data from "../fixtures/Module1/register.json"
+import data from "../../fixtures/Module1/register.json"
 
 describe('Fixture example 1', () => {
 

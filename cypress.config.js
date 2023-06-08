@@ -6,6 +6,8 @@ module.exports = defineConfig({
 
   reporter: 'cypress-mochawesome-reporter',
   e2e: {
+
+    "specPattern": "**/*.feature",
     "projectId": "dq7i1w",
     "baseUrl":"https://opensource-demo.orangehrmlive.com",
     "pageLoadTimeout": 120000,//"defaultCommandTimeout":20000,
@@ -29,8 +31,9 @@ module.exports = defineConfig({
 
       on('task', {downloadFile})
       require('cypress-mochawesome-reporter/plugin')(on);
-      allureWriter(on, config);
-      return config;
+      // allureWriter(on, config);
+      // return config;
+      return require('./cypress/plugins/index.js')(on, config)
       // implement node event listeners here
     },
   },
